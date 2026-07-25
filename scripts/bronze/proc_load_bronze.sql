@@ -128,14 +128,14 @@ BEGIN TRY
 
 ------------------------------------------------------------------------------------------------------
 
+        PRINT '=====================================================================';
+        PRINT 'SUCESSFULLY LOADED FILES INTO TABLES - BRONZE LAYER';
+        PRINT '=====================================================================';
+        
         SET @batch_end_time = GETDATE();
         PRINT '------------------------------------';
         PRINT 'TOTAL BATCH EXECUTION TIME : '+ CAST(DATEDIFF(SECOND,@batch_start_time,@batch_end_time) AS NVARCHAR) +'sec';
         PRINT '------------------------------------';
-
-        PRINT '=====================================================================';
-        PRINT 'SUCESSFULLY LOADED FILES INTO TABLES - BRONZE LAYER';
-        PRINT '=====================================================================';
 
 END TRY
 
