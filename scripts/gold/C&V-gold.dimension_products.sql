@@ -1,3 +1,7 @@
+IF OBJECT_ID(' gold. dim_products','V') IS NOT NULL
+DROP VIEW gold.dim_products;
+GO
+
 CREATE VIEW gold.dim_products AS
 SELECT 
 ROW_NUMBER() OVER(ORDER BY pn.prd_start_dt , pn.prd_key) AS product_key,
