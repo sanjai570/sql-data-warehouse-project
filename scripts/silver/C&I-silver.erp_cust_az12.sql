@@ -1,3 +1,6 @@
+
+PRINT 'Truncating and Inserting into table : silver.erp_cust_az12';
+TRUNCATE TABLE silver.erp_cust_az12;
 -- with cte
 
 WITH clean_data AS 

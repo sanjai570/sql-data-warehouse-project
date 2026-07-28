@@ -1,3 +1,6 @@
+PRINT 'Truncating and Inserting into table : silver.crm_cust_info';
+TRUNCATE TABLE silver.crm_cust_info;
+
 -- CLEANED AND INSERTED INTO silver.crm_cust_info
 
 INSERT INTO silver.crm_cust_info
@@ -15,7 +18,8 @@ SELECT
     cst_id,
     cst_key,
     TRIM(cst_firstname) AS cst_firstname, -- Data Clensing 'removing the leading and trailing space using TRIM()'
-    TRIM(cst_lastname) AS cst_lastname, 
+    TRIM(cst_lastname) AS cst_lastname,
+    CASE 
         WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'Single'
         WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'Married'
         ELSE 'n/a'
@@ -34,4 +38,3 @@ FROM(
     )t
     WHERE flag = 1; -- Select the most recent record per customer
 
-    SELECT * FROM silver.crm_cust_info

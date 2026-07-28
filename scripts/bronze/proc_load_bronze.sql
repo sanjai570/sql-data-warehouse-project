@@ -129,7 +129,7 @@ BEGIN TRY
 ------------------------------------------------------------------------------------------------------
 
         PRINT '=====================================================================';
-        PRINT 'SUCESSFULLY LOADED FILES INTO TABLES - BRONZE LAYER';
+        PRINT 'SUCCESSFULLY LOADED FILES INTO TABLES - BRONZE LAYER';
         PRINT '=====================================================================';
         
         SET @batch_end_time = GETDATE();
@@ -148,8 +148,3 @@ BEGIN CATCH
 
 END CATCH
 END
-
-
-
--- TO CHECK THE TOTAL NUMBER OF ROWS WHETHER THAT ALL ROWS ARE INSERTED ARE NOT.
-SELECT COUNT(*) FROM bronze.crm_cust_info

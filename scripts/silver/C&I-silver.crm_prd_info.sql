@@ -1,3 +1,6 @@
+PRINT 'Truncating and Inserting into table : silver.crm_prd_info';
+TRUNCATE TABLE silver.crm_prd_info;
+
 -- silver layer bronze.crm_prd_info
 
 INSERT INTO silver.crm_prd_info (

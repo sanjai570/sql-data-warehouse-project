@@ -1,3 +1,6 @@
+PRINT 'Truncating and Inserting into table : silver.erp_loc_a101';
+TRUNCATE TABLE silver.erp_loc_a101;
+
 WITH cleaned AS (
     SELECT
     REPLACE(cid,'-','') as cleaned_cid,
