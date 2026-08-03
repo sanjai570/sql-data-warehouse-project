@@ -2,9 +2,9 @@
 
 Welcome to the **SQL Server Data Warehouse Project** repository!
 
-This project demonstrates the design and implementation of a modern data warehouse using **SQL Server** and the **Medallion Architecture (Bronze, Silver, Gold)**. It showcases an end-to-end data engineering workflow, including data ingestion, ETL processes, data quality improvements, dimensional data modeling, and analytics-ready datasets.
+This project demonstrates the design and implementation of a modern **SQL Server Data Warehouse** using the **Medallion Architecture (Bronze, Silver, Gold)**. It showcases an end-to-end data engineering workflow, including data ingestion, ETL development, data cleansing, dimensional modeling, and analytics-ready datasets.
 
-The project is designed as a portfolio piece to demonstrate practical data engineering skills and industry-standard data warehousing practices.
+The project is designed as a portfolio project to demonstrate practical **Data Engineering**, **SQL**, and **Data Warehousing** skills using industry-standard best practices.
 
 ---
 
@@ -12,7 +12,7 @@ The project is designed as a portfolio piece to demonstrate practical data engin
 
 The objective of this project is to build a scalable and organized data warehouse that integrates data from multiple business systems into a single source of truth for reporting and analytics.
 
-The solution follows the Medallion Architecture:
+The solution follows the **Medallion Architecture**:
 
 - 🥉 **Bronze Layer** – Raw data ingestion from source systems
 - 🥈 **Silver Layer** – Data cleansing, standardization, and transformation
@@ -23,8 +23,8 @@ The solution follows the Medallion Architecture:
 # 🎯 Project Objectives
 
 - Build a modern data warehouse using SQL Server.
-- Design an end-to-end ETL pipeline.
-- Implement the Medallion Architecture.
+- Design and implement an end-to-end ETL pipeline.
+- Apply the Medallion Architecture.
 - Improve data quality through cleansing and validation.
 - Integrate ERP and CRM data into a unified analytical model.
 - Create optimized fact and dimension tables.
@@ -34,94 +34,111 @@ The solution follows the Medallion Architecture:
 
 # 📂 Data Sources
 
-This project uses data from two business systems:
+This project integrates data from two business systems:
 
-- **ERP System**
-- **CRM System**
+- 📁 **CRM System**
+- 📁 **ERP System**
 
-Both datasets are provided as CSV files and imported into SQL Server.
+Both datasets are provided as CSV files and loaded into SQL Server.
 
 ---
 
 # 🏗️ Data Warehouse Architecture
 
-```text
-ERP CSV          CRM CSV
-     │              │
-     └──────┬───────┘
-            │
-       Bronze Layer
-      (Raw Data Load)
-            │
-            ▼
-       Silver Layer
-(Data Cleaning & Transformation)
-            │
-            ▼
-        Gold Layer
- (Dimensional Data Model)
-            │
-            ▼
-      Analytics & Reporting
-```
+The project follows the **Medallion Architecture**, where data flows through three logical layers.
+
+- **Bronze Layer** stores raw ERP and CRM data exactly as received.
+- **Silver Layer** cleans, validates, standardizes, and enriches the raw data.
+- **Gold Layer** builds business-ready dimensional models (Fact and Dimension tables) optimized for analytics.
+
+The Gold layer serves as the single source of truth for:
+
+- 📊 Business Intelligence
+- 📈 Reporting
+- 🔍 Ad-hoc SQL Queries
+- 🤖 Machine Learning
+
+<p align="center">
+  <img src="docs/data_architecture.png" alt="Data Warehouse Architecture" width="1000">
+</p>
+
+---
+
+# 🔄 Data Flow Diagram
+
+The following diagram illustrates how data moves through the complete ETL pipeline.
+
+- CRM and ERP systems provide raw CSV datasets.
+- Raw data is ingested into the Bronze layer.
+- ETL processes clean, validate, standardize, and transform the data in the Silver layer.
+- The Gold layer integrates the processed data into a Star Schema consisting of Fact and Dimension tables.
+
+Final analytical tables include:
+
+- **fact_sales**
+- **dim_customers**
+- **dim_products**
+
+<p align="center">
+  <img src="docs/data_flow_diagram.png" alt="Data Flow Diagram" width="850">
+</p>
 
 ---
 
 # ⚙️ ETL Process
 
-The ETL pipeline includes:
+The ETL pipeline consists of the following stages:
 
-- Importing raw CSV files
+- Import raw CSV files
 - Data validation
-- Removing duplicates
-- Handling missing values
-- Standardizing formats
+- Duplicate removal
+- Missing value handling
+- Data standardization
 - Data transformation
 - Business rule implementation
-- Loading analytical tables
+- Load into analytical tables
 
 ---
 
 # 📊 Data Model
 
-The Gold layer follows a dimensional modeling approach consisting of:
+The Gold Layer follows a **Star Schema** dimensional model.
 
 ### Dimension Tables
 
-- DimCustomer
-- DimProduct
-- DimDate
-- DimLocation
+- dim_customers
+- dim_products
 
 ### Fact Tables
 
-- FactSales
+- fact_sales
 
-This structure enables efficient reporting and analytical queries.
+This model is optimized for analytical queries and reporting.
 
 ---
 
 # 📈 Analytics
 
-The final warehouse supports business analysis such as:
+The final warehouse supports business analysis including:
 
-- Sales Performance
+- Sales Performance Analysis
 - Customer Insights
 - Product Performance
 - Revenue Analysis
 - Monthly Sales Trends
-- Regional Sales Analysis
-- KPI Reporting
+- Business KPI Reporting
+- Ad-hoc SQL Analysis
 
 ---
 
 # 🛠️ Technologies Used
 
-- SQL Server
+- Microsoft SQL Server
 - T-SQL
-- Medallion Architecture
 - ETL
-- Dimensional Data Modeling
+- Medallion Architecture
+- Star Schema
+- Data Warehousing
 - Git
 - GitHub
 
@@ -129,17 +146,17 @@ The final warehouse supports business analysis such as:
 
 # 📁 Repository Structure
 
-```
+```text
 sql-data-warehouse-project
 │
 ├── datasets/
 ├── docs/
+│   ├── data_architecture.png
+│   └── data_flow_diagram.png
 ├── scripts/
 │   ├── bronze/
 │   ├── silver/
 │   └── gold/
-├── diagrams/
-├── images/
 ├── LICENSE
 └── README.md
 ```
@@ -148,13 +165,14 @@ sql-data-warehouse-project
 
 # 🎓 Skills Demonstrated
 
-- Data Warehousing
-- Data Engineering
-- ETL Development
 - SQL Programming
+- Data Engineering
+- Data Warehousing
+- ETL Pipeline Development
 - Data Cleansing
 - Data Transformation
-- Data Modeling
+- Dimensional Modeling
+- Star Schema Design
 - Analytical Query Development
 - Git Version Control
 
@@ -162,25 +180,25 @@ sql-data-warehouse-project
 
 # 🚀 Future Improvements
 
-- Automate ETL pipelines
-- Add incremental data loading
-- Implement data quality monitoring
-- Integrate Power BI dashboards
-- Deploy to Azure SQL Database
+- Automate ETL pipelines using orchestration tools.
+- Implement incremental data loading.
+- Add data quality monitoring.
+- Build interactive Power BI dashboards.
+- Deploy the solution to Azure SQL Database.
 
 ---
 
 # 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 
 # 👨‍💻 About Me
 
-Hi, I'm **Sanjai S**, an aspiring **Data Engineer** passionate about building scalable data solutions and transforming raw data into meaningful insights.
+Hi, I'm **Sanjai S**, an aspiring **Data Engineer** passionate about designing scalable data solutions and transforming raw data into meaningful business insights.
 
-I'm continuously improving my skills in:
+Currently focusing on:
 
 - SQL
 - Data Engineering
@@ -189,4 +207,4 @@ I'm continuously improving my skills in:
 - Power BI
 - Cloud Technologies
 
-Feel free to explore the project, provide feedback, or connect with me!
+If you found this project useful, feel free to ⭐ the repository or connect with me on GitHub.
